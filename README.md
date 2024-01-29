@@ -60,12 +60,12 @@ On Successful Invoke the API Responds with the Verification link and the newly c
 In order to use the API's Resources the user will sign in following the `{base_url}/users/login/` request with the following description. Only Email and Password is sent.
 
 ```
-GET http://localhost:8000/api/v1/users/login/
+GET http://localhost:2000/api/v1/users/login/
 Content-Type: application/json
  
 {
-"email": "miveson0@scribd.com",
-"password": "ghlGg8l"
+"email": "yourgmail@gmail.com",
+"password": "aaaaaa"
 }
  
 ```
@@ -93,13 +93,13 @@ Each URL Check Contains the following parameters, Creating each check does not r
   - `tags`: A list of the check tags (optional).
 
   - ```
-POST http://localhost:8000/api/v1/checks/
+POST http://localhost:2000/api/v1/checks/
 Authorization: Bearer {token}
 Content-Type: application/json
  
 {
-"name": "Quo Lux",
-"url": "http://dummyimage.com/"
+"name": "Your Name",
+"url": "http://yourUrl.com/"
 }
  
 ```
