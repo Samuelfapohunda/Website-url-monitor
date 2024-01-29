@@ -4,6 +4,7 @@ import tokenController from "../controllers/tokens";
 import { tryCatchWrapExpress } from "../utils/wrappers";
 import config from "../config/config.secrets";
 import sendEmail from "../utils/mail";
+import { statusCode } from './../statusCodes';
 import jwt from "jsonwebtoken";
 
 const usersRouter = express.Router();
@@ -14,7 +15,7 @@ const routerCreateUser = tryCatchWrapExpress(async (req: Request, res: Response)
 
     const verificationURL = `${process.env.base_url}/users/verify/${newUser._id}/${createdToken.token}`;
     await sendEmail(newUser.email, "Verify Email", verificationURL);
-    res.status(200).json({
+    res.status(statusCode.success).json({
         message: "Verification Sent",
         newUser,
         url: verificationURL
@@ -26,7 +27,7 @@ const routerAuthenticateUser = tryCatchWrapExpress(async (req: Request, res: Res
    const secretKey = process.env.token_secret ?? "default-secret";
     const generatedToken = jwt.sign({ authenticatedUser }, secretKey);
     console.log(generatedToken);
-    res.status(200).json({
+    res.status(statusCode.success).json({
         message: "User Authentication Successful",
         token: generatedToken
     });
@@ -34,7 +35,7 @@ const routerAuthenticateUser = tryCatchWrapExpress(async (req: Request, res: Res
 
 const routerVerifyUser = tryCatchWrapExpress(async (req: Request, res: Response) => {
     await tokenController.verifyUser(req.params.id, req.params.token);
-    res.status(200).json({ message: "Verified Successfully " });
+    res.status(statusCode.success).json({ message: "Verified Successfully " });
 });
 
 usersRouter.route("/signup").post(routerCreateUser);
