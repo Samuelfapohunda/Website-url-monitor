@@ -1,7 +1,7 @@
 import { ApiError } from "../utils/apiError";
 import { Check, validateCheck } from "../models/urlCheck";
 import * as reportController from "../controllers/reports";
-import { userExists } from "../controllers/users";
+import { userExists } from "./users";
 import eventEmitter from "./events";
 import { AxiosResponse } from "axios";
 

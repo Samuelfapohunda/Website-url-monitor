@@ -39,7 +39,6 @@ const userSchema = new Schema<UserDocument>({
   },
   password: {
     type: String,
-    required: [true, 'Please provide a Password for the Account'],
   },
   verified: {
     type: Boolean,

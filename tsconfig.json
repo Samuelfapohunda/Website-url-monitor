@@ -9,6 +9,10 @@
       "strict": true, 
       "useUnknownInCatchVariables": false,
       "resolveJsonModule": true,
+      "typeRoots": [
+        "./src/typings",
+        "./node_modules/@types"
+      ],
       "sourceMap": true
     },
     // "include": ["src"],

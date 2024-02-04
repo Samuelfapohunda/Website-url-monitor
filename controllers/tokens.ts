@@ -1,7 +1,7 @@
 import {Token} from "../models/Token";
 import { ApiError } from "../utils/apiError";
 import crypto from "crypto";
-import * as userController from "../controllers/users";
+import * as userController from "./users";
 
 const createToken = async (userID: string) => {
     // Check User Exists
